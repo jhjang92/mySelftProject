@@ -1,0 +1,15 @@
+$lineColor: #fff;
+
+$darkBlueColor: #141F3E;
+$moonDrakBlueColor: #1D2B6B;
+$spaceBlueColor: #13275A;
+$deepRedColor: #8F2E2E;
+
+$changeTransition: .3s;
+
+@mixin buttonReset() {
+    border: none; background: none;
+    outline-style: none;
+    margin: 0; padding: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,139 @@
+@import "../css/common";
+
+*{list-style: none;}
+
+html, body{
+    margin: 0; padding: 0;
+    // @include darkBgColor();
+    transition: $changeTransition;
+    &.change{
+        background-color: $darkBlueColor;
+    }
+}
+
+.header{
+    position: fixed; z-index: 100;
+
+    &__logo{
+        position: fixed;
+        top: 50px; left: 80px;
+        font-size: 2rem;
+        transition: $changeTransition;
+    }
+    &__menu{
+        @include buttonReset();
+
+        width: 80px;
+        height: 80px;
+        position: fixed;
+        top: 50%; transform: translateY(-50%);
+        transition: 1s;
+
+
+        &--bar{
+            display: block;
+            width: 33%; height: 2px;
+            margin: 5px auto; border-radius: 15%;
+            background: black;
+            
+        }
+    }
+    &__menu.on{
+        transform: translateY(-50%) rotate(90deg);
+    }
+    &__navigation{
+        display: none;
+    }
+
+    &__mode{
+        @include buttonReset();
+
+        position: fixed; z-index: 100;
+        top: 80px; right: 90px;
+        width: 100px; height: 30px;
+        border-radius: 15px;
+        background: gray;
+        box-shadow: 1px 1px 3px;
+        
+        &--light{
+            width: 25px; height: 25px;
+            line-height: 25px;            
+            text-align: center; font-size: .7rem;
+            background: green; color: #fff;
+            border-radius: 100%;
+            display: block;
+            transform: translate(270%, -3%);
+            transition: $changeTransition;
+            
+        }
+        &.change {
+            background: blue;            
+        }
+        &.change &--light {
+            background: navy;
+        }
+    }
+}
+.header{
+    &.change &__logo{
+        color: #fff;
+    }
+    &.change &__menu{
+        &--bar{
+            background-color: white;
+        }
+    }
+}
+
+.line{
+    width: 100%; height: 100%;
+    position: fixed;
+
+    & span{
+        float: left;
+        width: 12.5%; height: 100%;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        transition: $changeTransition;
+
+        &::before{
+            content: '';
+            display: block;
+            width: 0%; height: 100%;
+            transition: .7s;
+            background: pink;
+        }
+        &:last-of-type{border-right: 0;}
+    }
+    &::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    &.on{
+        & span{
+            &::before{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.line{
+    &.change{
+        & span{
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            &::before{
+                background: $moonDrakBlueColor;
+            }
+        }
+    
+        &.on & span{
+            &::before{
+                width: 100%;
+            }
+        }
+    }
+}
+
