@@ -1,0 +1,17 @@
+.section{
+    padding-left: 12.5%;
+
+    &__portfolio{
+        background: red;
+        overflow: hidden;
+        &--list{
+            width: 100%;
+            position: absolute;
+            display: flex;
+            & li{
+                width: 30%;
+            }
+        }
+        
+    }
+}

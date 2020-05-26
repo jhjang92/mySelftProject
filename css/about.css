@@ -1,0 +1,86 @@
+@keyframes rightVisualText {
+  0% {
+    margin-right: -120px; }
+  30% {
+    margin-right: -120px; }
+  100% {
+    margin-right: 0; } }
+@keyframes leftVisualText {
+  0% {
+    margin-left: -200px; }
+  30% {
+    margin-left: -200px; }
+  100% {
+    margin-left: 0; } }
+.section {
+  width: 100%;
+  margin-top: 10%;
+  transition: 1s; }
+  .section__header {
+    font-size: 2rem;
+    overflow: hidden;
+    font-weight: 600;
+    margin-left: 3%; }
+    .section__header--title {
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; }
+    .section__header--visual-text {
+      color: #000;
+      line-height: 30px;
+      overflow: hidden;
+      float: left;
+      box-sizing: border-box; }
+    .section__header--visual-text:first-of-type span {
+      margin-right: -120px; }
+    .section__header--visual-text:last-of-type {
+      margin-top: 5px; }
+      .section__header--visual-text:last-of-type span {
+        margin-left: -200px; }
+  .section__info {
+    margin-left: 12.5%;
+    padding-top: 50px; }
+    .section__info--what {
+      padding-top: 100px;
+      overflow: hidden; }
+      .section__info--what:first-of-type {
+        padding-top: 0; }
+      .section__info--what h3 {
+        width: 17%;
+        margin: 0 0 0 1%;
+        padding: 0;
+        font-size: 1.2rem;
+        color: black;
+        float: left;
+        box-sizing: border-box; }
+      .section__info--what dl {
+        width: 80%;
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+        float: left;
+        color: black; }
+        .section__info--what dl dt {
+          margin-top: 50px;
+          font-size: 1.2rem; }
+        .section__info--what dl dd {
+          font-size: .8rem;
+          margin: 15px 0 0 0; }
+        .section__info--what dl dt:first-of-type {
+          margin-top: 0; }
+
+.section__header.active .section__header--visual-text:first-of-type span {
+  animation: rightVisualText .8s both; }
+.section__header.active .section__header--visual-text:last-of-type span {
+  animation: leftVisualText 1.7s both; }
+
+.section.change .section__header--visual-text {
+  color: #FFF; }
+.section.change .section__info--what h3 {
+  color: #FFF; }
+.section.change .section__info--what dl {
+  color: #FFF; }
+
+/*# sourceMappingURL=about.css.map */

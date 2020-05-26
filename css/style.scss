@@ -1,24 +1,38 @@
 @import "../css/common";
+@import "../css/mixin";
 
-*{list-style: none;}
-
-html, body{
+ul, li, a{list-style: none; text-decoration: none;}
+ul, li {margin: 0; padding: 0;}
+body{
+    height: 100vh;
     margin: 0; padding: 0;
     // @include darkBgColor();
     transition: $changeTransition;
+    background: radial-gradient(circle, $blueOrigin, #00BFFE);
+
+
     &.change{
-        background-color: $darkBlueColor;
+        background: radial-gradient(circle, $spaceBlueColor, $darkBlueColor);
+    }
+    &.on{
+        background-color: rgba(145, 145, 145, 0.4);
     }
 }
 
 .header{
     position: fixed; z-index: 100;
+    width: 100%; height: 120px;
+    top: 0; left: 0;
 
     &__logo{
         position: fixed;
         top: 50px; left: 80px;
-        font-size: 2rem;
+        z-index: 1000;
+        font-size: 1.5rem;
         transition: $changeTransition;
+        & a{
+            color: #000;
+        }
     }
     &__menu{
         @include buttonReset();
@@ -28,7 +42,6 @@ html, body{
         position: fixed;
         top: 50%; transform: translateY(-50%);
         transition: 1s;
-
 
         &--bar{
             display: block;
@@ -42,9 +55,77 @@ html, body{
         transform: translateY(-50%) rotate(90deg);
     }
     &__navigation{
-        display: none;
-    }
+        width: 100%; height: 100%;
+        position: fixed;
+        margin-left: 12.5%;
+        box-sizing: border-box;
 
+        & ul{
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 100px 0;
+
+            overflow: hidden;
+            box-sizing: border-box;
+            & li {
+                width: max-content;
+                transition: .5s ease-in-out;
+                @for $i from 1 through length($menuNaviTransitionDelay){
+                    &:nth-of-type(#{$i}){
+                        transform: translateX(-100%);
+                        transition-delay:  nth($menuNaviTransitionDelay, $i)+s;
+                    }
+                }
+                & a{
+                    text-decoration: none;
+                    color: #000;
+                    font-size: $menuNaviText + 1;
+                    padding: 10px;
+                    line-height: $menuNaviText;
+
+                    display: block;
+                    &:hover{
+                        color: #FFF;
+                        transition: .3s;
+                    }
+                }
+            }
+        }
+        // display: none;
+    }
+    &__topNavigation{
+        width: 100%;
+        position: fixed;
+        top: -30%;
+        box-sizing: border-box;
+        transition: 1s;
+        opacity: 0;
+        & ul{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            & li{
+                & a{
+                    display: block;
+                    margin: 15px;
+                    color: black;
+                    font-size: .5rem;
+                    font-weight: 700;
+                }
+            }
+            & li{
+                & a.active{
+                    color: $topActiveColor;
+                }
+            }
+        }
+    }
+    &__topNavigation.on{
+        opacity: 1;
+        top: 0;
+    }
     &__mode{
         @include buttonReset();
 
@@ -59,35 +140,147 @@ html, body{
             width: 25px; height: 25px;
             line-height: 25px;            
             text-align: center; font-size: .7rem;
-            background: green; color: #fff;
+            background: #FFF; color: $darkBlueColor;
             border-radius: 100%;
             display: block;
             transform: translate(270%, -3%);
             transition: $changeTransition;
             
         }
-        &.change {
-            background: blue;            
-        }
-        &.change &--light {
-            background: navy;
-        }
     }
 }
 .header{
     &.change &__logo{
-        color: #fff;
+        & a{
+            color: #FFF;
+        }
     }
     &.change &__menu{
         &--bar{
             background-color: white;
         }
     }
+    &.change &__mode{
+        &--light{
+            background: $darkBlueColor; color: #FFF;
+            transform: translate(20%, -3%);
+        }
+    }
+    &.change &__navigation{
+        & ul li a{
+            color: #FFF;
+            &:hover{
+                color: #000;
+                transition: .3s;
+            }
+        }
+    }
+
+    &.change &__topNavigation{
+        & ul li a{
+            color: #FFF;
+        }
+        & ul li a.active{
+            color: $topActiveColor;
+        }
+    }
 }
 
+.header{
+    &.on &__navigation{
+        display: block;
+
+        & ul{
+            & li{
+                @for $i from 1 through length($menuNaviTransitionDelay){
+                    &:nth-of-type(#{$i}){
+                        transform: translateX(0%);
+                        transition-delay:  ($i + 1) * 0.2s;
+
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.home-section{
+    width: 100%; height: 70%;
+    padding: 0 5%;
+    box-sizing: border-box;
+
+    position: fixed;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 1s;
+    &__main-box{
+        width: 100%; height: 100%;
+       &--greet{
+           width: 100%; height: 100%;
+           background: url("/img/background50.jpg");
+            margin: 0; padding: 0;
+            
+            font-size: 4rem;
+            color: #000;
+            & span{
+                display: block;
+                position: absolute;
+                left: 0%; top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                transition: left 1s;
+                z-index: 1000;
+            }
+            & span:last-of-type{
+                top: 65%;
+            }
+       }
+       &--greet.active{
+           & span:first-of-type{
+                left: 13%;
+                opacity: 1;
+                transition: opacity 1s .4s, left 1s .4s;
+        }
+           & span:last-of-type{
+               left: 13%;
+               top: 65%;
+               opacity: 1;
+               transition: opacity 1s .8s, left 1s .8s;
+           }
+       }
+    }
+    &__main-box::after{
+        @include beforeAfterInit();
+        width: 100%; height: 100%;
+        background: none;
+    }
+
+    &.on{
+        opacity: 1;
+        transition-delay: 1s;
+    }
+}
+
+.home-section{
+    &.change &__main-box{
+        &--greet{
+            color: #FFF;
+        }
+    }
+    &.change &__main-box::after{
+        @include beforeAfterInit();
+        width: 100%; height: 100%;
+        background: rgba(20, 31, 62, 0.9);
+        position: absolute;
+        left: 0; top: 0;
+    }
+}
 .line{
     width: 100%; height: 100%;
     position: fixed;
+    top: 0; left: 0;
 
     & span{
         float: left;
@@ -97,17 +290,16 @@ html, body{
         transition: $changeTransition;
 
         &::before{
-            content: '';
-            display: block;
+            @include beforeAfterInit();
             width: 0%; height: 100%;
             transition: .7s;
-            background: pink;
+            transition-delay: 1.3s;
+            background: $blueOrigin;
         }
         &:last-of-type{border-right: 0;}
     }
     &::after{
-        content: '';
-        display: block;
+        @include beforeAfterInit();
         clear: both;
     }
 
@@ -115,9 +307,10 @@ html, body{
         & span{
             &::before{
                 width: 100%;
+                transition-delay: 0s;
             }
-        }
-    }
+        } 
+    } 
 }
 
 .line{
@@ -129,10 +322,8 @@ html, body{
             }
         }
     
-        &.on & span{
-            &::before{
+        &.on & span &::before{
                 width: 100%;
-            }
         }
     }
 }

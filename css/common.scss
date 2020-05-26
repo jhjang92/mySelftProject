@@ -4,12 +4,11 @@ $darkBlueColor: #141F3E;
 $moonDrakBlueColor: #1D2B6B;
 $spaceBlueColor: #13275A;
 $deepRedColor: #8F2E2E;
-
+$blueOrigin: #59C2E1;
+$cometBlue: #39B0E6;
+$topActiveColor: #ec0101;
 $changeTransition: .3s;
+$menuNaviText: 3.5rem;
 
-@mixin buttonReset() {
-    border: none; background: none;
-    outline-style: none;
-    margin: 0; padding: 0;
-    cursor: pointer;
-}
+$menuNaviTransitionDelay: (.9, 0.75, 0.5, 0.35, 0.2);
+

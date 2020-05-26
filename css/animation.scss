@@ -1,0 +1,24 @@
+
+@keyframes rightVisualText{
+    0%{
+        margin-right: -120px;
+    }
+    30%{
+        margin-right: -120px;
+    }
+
+    100%{
+        margin-right: 0;
+    }
+}
+@keyframes leftVisualText{
+    0%{
+        margin-left: -200px;
+    }
+    30%{
+        margin-left: -200px;
+    }
+    100%{
+        margin-left: 0;
+    }
+}

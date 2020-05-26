@@ -1,0 +1,11 @@
+@mixin beforeAfterInit() {
+    content: '';
+    display: block;
+}
+
+@mixin buttonReset() {
+    border: none; background: none;
+    outline-style: none;
+    margin: 0; padding: 0;
+    cursor: pointer;
+}
