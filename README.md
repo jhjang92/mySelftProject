@@ -4,3 +4,6 @@
 
 version : 1.0.0
  - mainPage 
+
+version : 1.0.1
+ - mainPage, About
