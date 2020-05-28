@@ -1,36 +1,79 @@
-var sectionHeader;
+var sectionHeader, sectionContent,
+aboutInitCheck = true, wheelChangeChk = false, wheelIfElseChk = true;
 window.addEventListener('DOMContentLoaded', function(){
     sectionHeader = document.querySelector(".section__header");
+    sectionContentHTag = sectionHeader.querySelector("h2");
+    sectionContent = document.querySelector(".section__content");
+    sectionContact = document.querySelector(".section__contact");
+    
     init();
+
+    window.addEventListener('wheel', wheelUpDown);
 });
 
 
 function init(){
-    setTimeout(function(){
-        sectionHeader.classList.add('active');
-        var visualTexts = sectionHeader.querySelectorAll('.section__header--visual-text');
-
+    
+    if(aboutInitCheck){
+        aboutInitCheck = false;
 
         setTimeout(function(){
-            visualTexts.forEach(function(textBox){
-                textBox.classList.add('disable');
-            });
-        }, 2000);
-        
-        // checkHeader();
-    }, 500);
-}
-
-var checkHeader = function (){ 
+            console.log(headerMenuBtn);
+            headerMenuBtn.click();
+            lineBox.classList.add('about');
+            sectionContactQuick.classList.add('on');
+            setTimeout(function(){
+                sectionContent.classList.add('active');
+            }, 1500);
+    
+        }, 500);
+    }
+    
     setTimeout(function(){
-        if(headerTopMenuBtn == undefined){
-            checkHeader();
-        }else{
-            activeTopMenu();
-        }
-    }, 1500);
+        wheelChangeChk = true;
+    }, 4500);
 }
 
-function activeTopMenu(){
-    headerTopMenuBtn.classList.add('on');
+function wheelUpDown(){
+    if(wheelChangeChk){
+        wheelChangeChk = false;
+
+        console.log(event.deltaY);
+        if(event.deltaY >= 0){
+            if(wheelIfElseChk){
+                wheelIfElseChk = false;
+                sectionContent.classList.add('topMove');
+                sectionContact.classList.add('topMove');
+                sectionContentHTag.classList.add('topMove');
+                sectionContent.classList.remove('active');
+                sectionContactQuick.classList.remove('on');
+            
+                setTimeout(function(){
+                    sectionContentHTag.innerText == "ABOUT" ? sectionContentHTag.innerText = "CONTACT" : sectionContentHTag.innerText = "ABOUT";
+                    sectionContentHTag.classList.remove('topMove');
+                    
+                },500);
+            }
+
+        }else{
+            if(!wheelIfElseChk){
+                wheelIfElseChk = true;
+                sectionContent.classList.remove('topMove');
+                sectionContact.classList.remove('topMove');
+                sectionContentHTag.classList.add('topMove');
+                sectionContent.classList.add('active');
+                sectionContactQuick.classList.add('on');
+        
+                setTimeout(function(){
+                    sectionContentHTag.innerText == "ABOUT" ? sectionContentHTag.innerText = "CONTACT" : sectionContentHTag.innerText = "ABOUT";
+                    sectionContentHTag.classList.remove('topMove');
+                    
+                },500);
+            }
+        }
+        setTimeout(function(){
+            wheelChangeChk = true;
+        }, 2300);
+    }
+
 }

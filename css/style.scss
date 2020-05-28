@@ -26,7 +26,7 @@ body{
 
     &__logo{
         position: fixed;
-        top: 50px; left: 80px;
+        top: 50px; left: 3%;
         z-index: 1000;
         font-size: 1.5rem;
         transition: $changeTransition;
@@ -40,7 +40,7 @@ body{
         width: 80px;
         height: 80px;
         position: fixed;
-        left: 0%; top: 50%; transform: translateY(-50%);
+        left: 3%; top: 50%; transform: translateY(-50%);
         transition: 1s;
 
         &--bar{
@@ -53,13 +53,15 @@ body{
     }
     &__menu.on{
         transform: translateY(-50%) rotate(90deg);
-        z-index: 1001;
+        z-index: 100;
     }
     &__navigation{
         width: 100%; height: 100%;
         position: fixed;
         margin-left: 12.5%;
         box-sizing: border-box;
+        transition-delay: 2s;
+        transform: translateX(100%);
         & ul{
             width: 100%; height: 100%;
             display: flex;
@@ -130,12 +132,14 @@ body{
         @include buttonReset();
 
         position: fixed; z-index: 100;
-        top: 80px; right: 90px;
+        bottom: 100px; left: 2%;
         width: 100px; height: 30px;
         border-radius: 15px;
         background: gray;
         box-shadow: 1px 1px 3px;
-        
+        opacity: 1;
+        transition: .5s;
+        transition-delay: 1.7s;
         &--light{
             width: 25px; height: 25px;
             line-height: 25px;            
@@ -189,8 +193,10 @@ body{
 .header{
     &.on &__navigation{
         display: block;
-        z-index: 1001;
+        z-index: 100;
 
+        transform: translateX(0%);
+        transition-delay: 0s;
         & ul{
             & li{
                 @for $i from 1 through length($menuNaviTransitionDelay){
@@ -204,6 +210,8 @@ body{
 
         }
     }
+    
+    &.on &__mode{opacity: 0; transition-delay: 0s;}
 }
 
 .home-section{
@@ -282,7 +290,8 @@ body{
     width: 100%; height: 100vh;
     position: fixed;
     top: 0; left: 0;
-    
+    z-index: 0;
+    transition-delay: 3s;
     & span{
         float: left;
         width: 12.5%; height: 100%;
@@ -305,14 +314,25 @@ body{
     }
 
     &.on{
-        z-index: 100;
+        z-index: 10;
         & span{
             &::before{
                 width: 100%;
                 transition-delay: 0s;
             }
         } 
-    } 
+    }
+    &.about{
+        @for $i from 3 through 8{
+            & span{
+                &.off:nth-of-type(#{$i}){
+                    height: 0%;
+                    transition: .4s;
+                    transition-delay:  1.8s;
+                }
+            }
+        }
+    }
 }
 
 .line{

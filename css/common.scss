@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+*{font-family: 'Noto Sans KR', sans-serif;}
 $lineColor: #fff;
 
 $darkBlueColor: #141F3E;
@@ -10,6 +12,7 @@ $topActiveColor: #ec0101;
 $changeTransition: .3s;
 $menuNaviText: 3.5rem;
 
+$aboutContentTransitionDelay: 2s;
 $menuNaviTransitionDelay: (.9, 0.75, 0.5, 0.35, 0.2);
 
 p, dl,dt,dd,ul,li{margin: 0; padding: 0;}

@@ -1,5 +1,6 @@
 var header, headerMenuBtn, headerTopMenuBtn, onoffModeBtn, onoffSpan,
-    section, lineBox;
+    section, lineBox,
+    sectionContactQuick, sectionText;
 
 window.addEventListener('DOMContentLoaded', function(){
     var loadHeader = document.querySelector('header');
@@ -10,8 +11,8 @@ window.addEventListener('DOMContentLoaded', function(){
 
             setTimeout(function(){
                 initQuerySelector();
-
                 var menuOnOff = true;
+                console.log(sectionText);
                 if(sectionText){
                     sectionText.classList.add('active');
                 }
@@ -22,6 +23,15 @@ window.addEventListener('DOMContentLoaded', function(){
                         lineBox.classList.toggle('on');
                         header.classList.toggle('on');
                         section.classList.toggle('on');
+
+                        if(lineBox.className.includes("about")){
+                            lineBox.querySelectorAll('span').forEach(function(span){
+                                    span.classList.toggle('off');
+                            });
+
+                            sectionContactQuick.classList.toggle('on');
+                        }
+                        
                         setTimeout(function(){menuOnOff = true}, 2000);
                     }
                 });
@@ -63,6 +73,11 @@ function initQuerySelector(){
     onoffModeBtn = header.querySelector('.header__mode');
     onoffSpan = onoffModeBtn.querySelector('.header__mode--light');
     section = document.querySelector('section');
-    sectionText = section.querySelector('h3');
     lineBox = document.querySelector('.line');
+
+    console.log(location.href.includes("about"));
+    sectionText = section.querySelector('h3');
+    if(document.querySelector(".section__contact-quick")){
+        sectionContactQuick = document.querySelector(".section__contact-quick");
+    }
 }

@@ -1,3 +1,7 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+* {
+  font-family: 'Noto Sans KR', sans-serif; }
+
 p, dl, dt, dd, ul, li {
   margin: 0;
   padding: 0; }
