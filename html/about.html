@@ -50,9 +50,53 @@
             </div>
         </article>
         <article class="section__contact">
-            <div>
-qwdqwdqwdqwdqwdqwdqwdqdqwd<br>qwdqwdqwd<br>qwdqwdqwdqw<Br>
+            <h3>문의하기 & 댓글쓰기</h3>
+            <div class="section__contact--refresh">
+                <span>버튼공간 ( 한줄댓글에서 새로고침기능 )</span> 
             </div>
+            <div class="section__contact--tabMenu">
+                <button class="active">
+                    <strong>문의하기</strong>
+                    <spna>private</spna>
+                </button> 
+                <button>
+                    <strong>한줄댓글</strong>
+                    <span>public</span>
+                </button> 
+            </div>
+            
+            <form class="section__contact--form" action="">
+                <h4>궁금하신 사항들을 문의해주세요.</h4>
+                <label for="contactNickName">*닉네임</label>
+                <input id="contactNickName" type="text" name="name" value="">
+                
+                <label for="contactEmail">*이메일</label>
+                <input id="contactEmail" type="text" name="email" value="">
+                
+                <label for="contactTit">*제목</label>
+                <input id="contactTit" type="text" name="title" value="">
+
+                <label for="contactContent">*내용</label>
+                <textarea name="content" id="contactContent" cols="30" rows="10"></textarea>
+
+                <input type="submit" value="전송하기">
+
+            </form>
+            
+            <article class= "section__contact--comment">
+                <h4>불편하신 사항등을 남겨주세요 <span>-지적 및 피드백 환영합니다.</span></h4>
+
+                <form action="">
+                    <textarea type="text" placeholder="내용을 입력해주세요." name="content"></textarea>
+                    <input type="submit" value="등록">
+                </form>
+
+                <div>
+                    
+                </div>
+                
+
+            </article>
         </article>
 
         <div class="section__contact-quick">

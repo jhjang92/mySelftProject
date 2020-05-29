@@ -1,5 +1,15 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-*{font-family: 'Noto Sans KR', sans-serif;}
+// @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@font-face { font-family: 'Arita-dotum-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: u+ac00-u+d7af;
+}
+
+@import url('https://fonts.googleapis.com/earlyaccess/jejugothic.css');
+* {font-family: 'Montserrat', 'Arita-dotum-Medium', sans-serif;}
+
 $lineColor: #fff;
 
 $darkBlueColor: #141F3E;

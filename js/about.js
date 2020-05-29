@@ -5,10 +5,15 @@ window.addEventListener('DOMContentLoaded', function(){
     sectionContentHTag = sectionHeader.querySelector("h2");
     sectionContent = document.querySelector(".section__content");
     sectionContact = document.querySelector(".section__contact");
+    sectionContactTabMenus = sectionContact.querySelectorAll(".section__contact--tabMenu button");
     
     init();
 
     window.addEventListener('wheel', wheelUpDown);
+
+    sectionContactTabMenus.forEach(function(menus){
+        menus.addEventListener('click', changeTabMenu);
+    });
 });
 
 
@@ -31,7 +36,7 @@ function init(){
     
     setTimeout(function(){
         wheelChangeChk = true;
-    }, 4500);
+    }, 4000); 
 }
 
 function wheelUpDown(){
@@ -74,6 +79,21 @@ function wheelUpDown(){
         setTimeout(function(){
             wheelChangeChk = true;
         }, 2300);
+    }
+
+}
+
+function changeTabMenu(){
+    var activeTarget = sectionContact.querySelector(".active");
+    var formContent = sectionContact.querySelector(".section__contact--form");
+    var commentContent = sectionContact.querySelector(".section__contact--comment");
+    var target = event.currentTarget;
+    if(!target.className.includes('active')){
+        target.classList.add('active');
+        activeTarget.classList.remove('active');
+        formContent.classList.toggle('off');
+        commentContent.classList.toggle('on');
+    }else{
     }
 
 }

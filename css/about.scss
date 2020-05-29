@@ -2,6 +2,7 @@
 @import "../css/animation";
 @import "../css/mixin";
 
+// Sub01&Sub02 Section
 .section{
     width: 100%; height: 100%;
     padding-left: 12.5%;
@@ -10,7 +11,7 @@
 
     overflow: hidden;
     &__header{
-        // ABOUT 제목 수정해야함 반응형 깨짐
+       
         width: 100vh; height: 12.5vw;
         position: fixed;
         left: 25%; top: 0%;
@@ -33,9 +34,10 @@
         }
     }
 
-    &__content{
+    // sub01 - ABOUT START
+    &__content{ 
         margin-left: 12.5%;
-        width: 100%; height: 100%;
+        width: 75%; height: 100%;
         background: #192c60;
         top: 0%;
         position: fixed;
@@ -112,10 +114,30 @@
         &.topMove{
             top: -100%;
         }
-    }
+    } 
+    // sub01 - ABOUT ACTIVE
+    &__content{
+        &.active h3{
+            &::after{
+                width: 60%;
+            }
+        }
+        &.active span{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        &.active &--box{
+            opacity: 1;
+            transform: translateY(0);
+            }
+       }
+    // sub01 - ABOUT END
+
+    // sub02 - CONTACT START
     &__contact{
         margin-left: 12.5%;
-        width: 100%; height: 100%;
+        width: 75%; height: 100%;
         background: #192c60;
         top: 100%;
         position: fixed;
@@ -125,7 +147,131 @@
         &.topMove{
             top: 0%;
         }
+        & h3{
+            width: 1px; height: 1px;
+            overflow: hidden;
+            margin: 0; padding: 0;
+        }
+
+        &--refresh{
+            width: 100%; height: 80px;
+            line-height: 80px;
+            background: #234296;
+        }
+        &--tabMenu{
+            width: 100%; height: 80px;
+            border-top: 1px solid #595e8fef;
+            border-bottom: 1px solid #595e8fef;
+            box-sizing: border-box;
+            font-size: 0;
+            background: #234296;
+
+            & button{
+                @include buttonReset();
+                width: 265px; height: 80px;
+                display: inline-block;
+                
+                font-size: 1rem;
+                text-align: center;
+                color: white;
+                background: #233a79;
+                border: 1px solid #595e8fef;
+                box-sizing: border-box;
+                transform: translateY(-1px);
+                &.active{
+                    background: #192c60;
+                    border: none;
+                    border-bottom: 1px solid #192c60;
+                }
+
+                & strong{
+                    display: block;
+                }
+            }
+        }
+
+        &--form{
+            margin: 30px auto;
+            width: 50%;
+            transform: translateY(0);
+            transition: 1s;
+            opacity: 1;
+
+            & h4{
+                font-size: 2rem;
+                color: white;
+                text-align: center;
+            }
+            & label{
+                display: block;
+                margin: 10px 0 5px 0;
+                color: white;
+            }
+            & input{
+                display: block;
+                width: 100%; height: 40px;
+                box-sizing: border-box;
+                outline-style: none;
+            }
+
+            & textarea{
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                margin-bottom: 30px;
+                outline-style: none;
+                padding: 5px;
+            }
+
+            &.off{
+                transform: translateY(150%);
+                opacity: 0;
+            }
+
+        }
+
+        &--comment{
+            position: absolute;
+            left: 0; top: 225px;
+            width: 100%;
+            text-align: center;
+            transform: translateY(300%);
+            transition: 1s;
+            opacity: 0;
+            & h4{
+                color: white;
+                font-weight: 500;
+                & span{
+                    display: block;
+                    color: #233976;
+                    font-size: .8rem;
+                }
+            }
+
+            & form{
+                width: 100%;
+                margin: 0 auto;
+                & textarea{
+                    width: 60%;
+                    height: 100px;
+                    box-sizing: border-box;
+                }
+                & input{
+                    width: 15%; height: 100px;
+                    box-sizing: border-box;
+                    transform: translateY(-44px);
+                }
+            }
+
+            &.on{
+                transform: translateY(0%);
+                opacity: 1;
+            }
+        }
+
     }
+
+    // sub02 - CONTACT QUICK MENU
     &__contact-quick{
         width: 100px; height: 60px;
         background: $darkBlueColor;
@@ -158,21 +304,6 @@
         &.active{
         }
     }
+    //  sub02- CONTACT END
 
-   &__content{
-    &.active h3{
-        &::after{
-            width: 60%;
-        }
-    }
-    &.active span{
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    &.active &--box{
-        opacity: 1;
-        transform: translateY(0);
-        }
-   }
 }
