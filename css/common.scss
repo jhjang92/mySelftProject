@@ -1,29 +1,40 @@
 // @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@font-face { font-family: 'Arita-dotum-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    unicode-range: u+ac00-u+d7af;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@font-face {
+  font-family: "Arita-dotum-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: u+ac00- u+d7af;
 }
 
-@import url('https://fonts.googleapis.com/earlyaccess/jejugothic.css');
-* {font-family: 'Montserrat', 'Arita-dotum-Medium', sans-serif;}
+@import url("https://fonts.googleapis.com/earlyaccess/jejugothic.css");
+* {
+  font-family: "Montserrat", "Arita-dotum-Medium", sans-serif;
+}
 
 $lineColor: #fff;
 
-$darkBlueColor: #141F3E;
-$moonDrakBlueColor: #1D2B6B;
-$spaceBlueColor: #13275A;
-$deepRedColor: #8F2E2E;
-$blueOrigin: #59C2E1;
-$cometBlue: #39B0E6;
-$topActiveColor: #ec0101;
-$changeTransition: .3s;
+$darkBlueColor: #141f3e;
+$moonDrakBlueColor: #1d2b6b;
+$spaceBlueColor: #13275a;
+$deepRedColor: #8f2e2e;
+$blueOrigin: #59c2e1;
+$cometBlue: #39b0e6;
+$topActiveColor: #9e9191;
+$changeTransition: 0.3s;
 $menuNaviText: 3.5rem;
 
 $aboutContentTransitionDelay: 2s;
-$menuNaviTransitionDelay: (.9, 0.75, 0.5, 0.35, 0.2);
+$menuNaviTransitionDelay: (0.9, 0.75, 0.5, 0.35, 0.2);
 
-p, dl,dt,dd,ul,li{margin: 0; padding: 0;}
-
+p,
+dl,
+dt,
+dd,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}

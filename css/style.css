@@ -1,23 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/earlyaccess/jejugothic.css");
 @font-face {
-  font-family: 'Arita-dotum-Medium';
+  font-family: "Arita-dotum-Medium";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  unicode-range: u+ac00 -ud7af; }
+  unicode-range: u+ac00-u+d7af; }
 * {
-  font-family: 'Montserrat', 'Arita-dotum-Medium', sans-serif; }
+  font-family: "Montserrat", "Arita-dotum-Medium", sans-serif; }
 
-p, dl, dt, dd, ul, li {
+p,
+dl,
+dt,
+dd,
+ul,
+li {
   margin: 0;
   padding: 0; }
 
-ul, li, a {
+ul,
+li,
+a {
   list-style: none;
   text-decoration: none; }
 
-ul, li {
+ul,
+li {
   margin: 0;
   padding: 0; }
 
@@ -27,9 +35,9 @@ body {
   margin: 0;
   padding: 0;
   transition: 0.3s;
-  background: radial-gradient(circle, #59C2E1, #00BFFE); }
+  background: radial-gradient(circle, #59c2e1, #00bffe); }
   body.change {
-    background: radial-gradient(circle, #13275A, #141F3E); }
+    background: radial-gradient(circle, #13275a, #141f3e); }
   body.on {
     background-color: rgba(145, 145, 145, 0.4); }
 
@@ -89,7 +97,7 @@ body {
       box-sizing: border-box; }
       .header__navigation ul li {
         width: max-content;
-        transition: .5s ease-in-out; }
+        transition: 0.5s ease-in-out; }
         .header__navigation ul li:nth-of-type(1) {
           transform: translateX(-100%);
           transition-delay: 0.9s; }
@@ -114,8 +122,8 @@ body {
           font-weight: 600;
           display: block; }
           .header__navigation ul li a:hover {
-            color: #FFF;
-            transition: .3s; }
+            color: #fff;
+            transition: 0.3s; }
   .header__topNavigation {
     width: 100%;
     position: absolute;
@@ -131,10 +139,10 @@ body {
         display: block;
         margin: 15px;
         color: black;
-        font-size: .5rem;
+        font-size: 0.5rem;
         font-weight: 700; }
       .header__topNavigation ul li a.active {
-        color: #ec0101; }
+        color: #9e9191; }
   .header__topNavigation.on {
     opacity: 1;
     top: 0; }
@@ -148,45 +156,45 @@ body {
     position: absolute;
     z-index: 100;
     bottom: 100px;
-    left: 2%;
-    width: 100px;
-    height: 30px;
-    border-radius: 15px;
-    background: gray;
-    box-shadow: 1px 1px 3px;
+    left: 1%;
+    width: 10%;
+    height: 6%;
+    border-radius: 100px;
+    background-color: #233976;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
     opacity: 1;
-    transition: .5s;
+    transition: 0.5s;
     transition-delay: 1.7s; }
     .header__mode--light {
       width: 25px;
       height: 25px;
       line-height: 25px;
       text-align: center;
-      font-size: .7rem;
-      background: #FFF;
-      color: #141F3E;
+      font-size: 0.7rem;
+      background: #fff;
+      color: #141f3e;
       border-radius: 100%;
       display: block;
       transform: translate(270%, -3%);
       transition: 0.3s; }
 
 .header.change .header__logo a {
-  color: #FFF; }
+  color: #fff; }
 .header.change .header__menu--bar {
   background-color: #ffb800; }
 .header.change .header__mode--light {
-  background: #141F3E;
-  color: #FFF;
+  background: #141f3e;
+  color: #fff;
   transform: translate(20%, -3%); }
 .header.change .header__navigation ul li a {
-  color: #FFF; }
+  color: #fff; }
   .header.change .header__navigation ul li a:hover {
     color: #000;
-    transition: .3s; }
+    transition: 0.3s; }
 .header.change .header__topNavigation ul li a {
-  color: #FFF; }
+  color: #fff; }
 .header.change .header__topNavigation ul li a.active {
-  color: #ec0101; }
+  color: #9e9191; }
 
 .header.on .header__navigation {
   display: block;
@@ -219,6 +227,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 10;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: 1s; }
@@ -247,12 +256,12 @@ body {
     .home-section__main-box--greet.active span:first-of-type {
       left: 13%;
       opacity: 1;
-      transition: opacity 1s .4s, left 1s .4s; }
+      transition: opacity 1s 0.4s, left 1s 0.4s; }
     .home-section__main-box--greet.active span:last-of-type {
       left: 13%;
       top: 65%;
       opacity: 1;
-      transition: opacity 1s .8s, left 1s .8s; }
+      transition: opacity 1s 0.8s, left 1s 0.8s; }
   .home-section__main-box::after {
     content: '';
     display: block;
@@ -264,7 +273,7 @@ body {
     transition-delay: 1s; }
 
 .home-section.change .home-section__main-box--greet {
-  color: #FFF; }
+  color: #fff; }
 .home-section.change .home-section__main-box::after {
   content: '';
   display: block;
@@ -287,7 +296,7 @@ body {
     float: left;
     width: 12.5%;
     height: 100%;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #d4c0c0;
     box-sizing: border-box;
     transition: 0.3s; }
     .line span::before {
@@ -295,9 +304,9 @@ body {
       display: block;
       width: 0%;
       height: 100%;
-      transition: .7s;
+      transition: 0.7s;
       transition-delay: 1.3s;
-      background: #59C2E1; }
+      background: #59c2e1; }
     .line span:last-of-type {
       border-right: 0; }
   .line::after {
@@ -310,63 +319,63 @@ body {
     .line.on span::before {
       width: 100%;
       transition-delay: 0s; }
-  .line.about span.off:nth-of-type(3) {
+  .line.aboutContact span.off:nth-of-type(3) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
-  .line.about span.off:nth-of-type(4) {
+  .line.aboutContact span.off:nth-of-type(4) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
-  .line.about span.off:nth-of-type(5) {
+  .line.aboutContact span.off:nth-of-type(5) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
-  .line.about span.off:nth-of-type(6) {
+  .line.aboutContact span.off:nth-of-type(6) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
-  .line.about span.off:nth-of-type(7) {
+  .line.aboutContact span.off:nth-of-type(7) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
-  .line.about span.off:nth-of-type(8) {
+  .line.aboutContact span.off:nth-of-type(8) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(2) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(3) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(4) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(5) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(6) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(7) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
   .line.portfolio span.off:nth-of-type(8) {
     height: 0%;
-    transition: .4s;
+    transition: 0.4s;
     transition-delay: 1.8s; }
 
 .line.change span {
-  border-right: 1px solid #595e8fef; }
+  border-right: 1px solid #4d5170; }
   .line.change span::before {
-    background: #1D2B6B; }
+    background: #1d2b6b; }
 .line.change.on .line.change span .line.change::before {
   width: 100%; }
 

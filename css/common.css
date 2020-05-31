@@ -1,15 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/earlyaccess/jejugothic.css");
 @font-face {
-  font-family: 'Arita-dotum-Medium';
+  font-family: "Arita-dotum-Medium";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  unicode-range: u+ac00 -ud7af; }
+  unicode-range: u+ac00-u+d7af; }
 * {
-  font-family: 'Montserrat', 'Arita-dotum-Medium', sans-serif; }
+  font-family: "Montserrat", "Arita-dotum-Medium", sans-serif; }
 
-p, dl, dt, dd, ul, li {
+p,
+dl,
+dt,
+dd,
+ul,
+li {
   margin: 0;
   padding: 0; }
 

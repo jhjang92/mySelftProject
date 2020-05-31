@@ -1,0 +1,288 @@
+@import "../css/common";
+@import "../css/animation";
+@import "../css/mixin";
+
+// Sub01&Sub02 Section
+.section {
+  width: 100%;
+  height: 100%;
+  padding-left: 12.5%;
+  transition: 1s;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  &__header {
+    width: 100vh;
+    height: 12.5vw;
+    position: fixed;
+    left: 25%;
+    top: 0%;
+
+    background: #192c60;
+    font-size: 6rem;
+    text-align: center;
+    transform-origin: left top;
+    transform: rotate(90deg);
+    box-sizing: border-box;
+    & h2 {
+      color: #233976;
+      letter-spacing: 2rem;
+      margin: 0;
+      height: 100%;
+      transition: 0.5s;
+      &.topMove {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  // sub01 - ABOUT START
+  &__content {
+    margin-left: 12.5%;
+    width: 75%;
+    height: 100%;
+    background: #192c60;
+    top: 0%;
+    position: fixed;
+    z-index: 5;
+    transition: 1s;
+    & h3 {
+      margin: 5% 0 0 12.5%;
+      padding: 0;
+      font-size: 5rem;
+      color: white;
+      &::after {
+        @include beforeAfterInit();
+        width: 0%;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: 1s;
+        transition-delay: 0.5s;
+      }
+    }
+    & span {
+      transform: translateY(30px);
+      margin-left: 12.5%;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+      display: block;
+      opacity: 0;
+      transition: 1s;
+      transition-delay: 0.8s;
+    }
+
+    &--box {
+      margin: 70px 0 0 12.5%;
+      transform: translateY(30px);
+      opacity: 0;
+      transition: 1s;
+      transition-delay: 1.1s;
+      & div {
+        float: left;
+        & dl {
+          margin-top: 50px;
+          color: white;
+          dt {
+            font-size: 1.5rem;
+          }
+          dd {
+            margin-top: 25px;
+            font-size: 0.9rem;
+          }
+          &:first-of-type {
+            margin-top: 0;
+          }
+        }
+      }
+
+      &-graph {
+        margin-left: 150px;
+        & strong {
+          font-size: 2rem;
+          color: white;
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+      & p {
+        clear: both;
+        padding-top: 20px;
+        color: white;
+        text-align: center;
+      }
+      &::after {
+        @include beforeAfterInit();
+        clear: both;
+      }
+    }
+
+    &.topMove {
+      top: -100%;
+    }
+  }
+  // sub01 - ABOUT ACTIVE
+  &__content {
+    &.active h3 {
+      &::after {
+        width: 60%;
+      }
+    }
+    &.active span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &.active &--box {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  // sub01 - ABOUT END
+
+  // sub02 - CONTACT START
+  &__contact {
+    margin-left: 12.5%;
+    width: 75%;
+    height: 100%;
+    background: #192c60;
+    top: 100%;
+    position: fixed;
+    z-index: 5;
+    transition: 1s;
+
+    &.topMove {
+      top: 0%;
+    }
+    & h3 {
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    &--refresh {
+      width: 100%;
+      height: 80px;
+      line-height: 80px;
+      background: #234296;
+    }
+    &--tabMenu {
+      width: 100%;
+      height: 80px;
+      border-top: 1px solid #595e8fef;
+      border-bottom: 1px solid #595e8fef;
+      box-sizing: border-box;
+      font-size: 0;
+      background: #234296;
+
+      & button {
+        @include buttonReset();
+        width: 265px;
+        height: 80px;
+        display: inline-block;
+
+        font-size: 1rem;
+        text-align: center;
+        color: white;
+        background: #233a79;
+        border: 1px solid #595e8fef;
+        box-sizing: border-box;
+        transform: translateY(-1px);
+        &.active {
+          background: #192c60;
+          border: none;
+          border-bottom: 1px solid #192c60;
+        }
+
+        & strong {
+          display: block;
+        }
+      }
+    }
+
+    &--form {
+      margin: 30px auto;
+      width: 50%;
+      transform: translateY(0);
+      transition: 1s;
+      opacity: 1;
+
+      & h4 {
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+      }
+      & label {
+        display: block;
+        margin: 10px 0 5px 0;
+        color: white;
+      }
+      & input {
+        display: block;
+        width: 100%;
+        height: 40px;
+        box-sizing: border-box;
+        outline-style: none;
+      }
+
+      & textarea {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        outline-style: none;
+        padding: 5px;
+      }
+
+      &.off {
+        transform: translateY(150%);
+        opacity: 0;
+      }
+    }
+
+    &--comment {
+      position: absolute;
+      left: 0;
+      top: 225px;
+      width: 100%;
+      text-align: center;
+      transform: translateY(300%);
+      transition: 1s;
+      opacity: 0;
+      & h4 {
+        color: white;
+        font-weight: 500;
+        & span {
+          display: block;
+          color: #233976;
+          font-size: 0.8rem;
+        }
+      }
+
+      & form {
+        width: 100%;
+        margin: 0 auto;
+        & textarea {
+          width: 60%;
+          height: 100px;
+          box-sizing: border-box;
+        }
+        & input {
+          width: 15%;
+          height: 100px;
+          box-sizing: border-box;
+          transform: translateY(-44px);
+        }
+      }
+
+      &.on {
+        transform: translateY(0%);
+        opacity: 1;
+      }
+    }
+  }
+
+  //  sub02- CONTACT END
+}

@@ -1,12 +1,10 @@
-window.addEventListener('DOMContentLoaded', function(){
-
+window.addEventListener("DOMContentLoaded", function () {
   init();
 });
 
-function init(){
-    
-      setTimeout(function(){
-          lineBox.classList.add('portfolio');
-      }, 500);
-  
+function init() {
+  setTimeout(function () {
+    headerMenuBtn.click();
+    lineBox.classList.add("portfolio");
+  }, 500);
 }

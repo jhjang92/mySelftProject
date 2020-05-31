@@ -2,69 +2,80 @@
 @import "../css/animation";
 @import "../css/mixin";
 
-.section{
-    width: 87.5%; height: 100%;
-    margin: 0 0 0 12.5%;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10;
-    &__portfolio{
-        width: 100%; height: 100%;
-        overflow: hidden;
-        & h2{
-            width: 1px; height: 1px;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        &--list{
-            position: absolute;
-            display: flex;
-            text-align: center;
-            & li{
-                width: 400px; height: 100vh;
-                color: white;
-                border: 1px solid red;
-                box-sizing: border-box;
-                & button{
-                    @include buttonReset();
-                    width: 100%; height: 100%;
-                    margin: 0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    &:hover{
-                        background-color: green;
-                    }
-                    & figure{
-                        padding-top: 300px;
-                        
-                        & img{
-                            width: 300px;
-                        }
-                        & figcaption{
-
-                        }
-                    }
-                }
-                &.active{
-                    width: 900px;
-
-                    & button{
-                        & figure{
-                            & img{
-                                width: 600px;
-                            }
-                            & figcaption{
-
-                            }
-                        }
-                    }
-                    
-                }
-            }
-        }
-        
+.section {
+  width: 87.5%;
+  height: 100%;
+  margin: 0 0 0 12.5%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+  &__portfolio {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    & h2 {
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      overflow: hidden;
     }
+
+    &--list {
+      width: 100%;
+      position: absolute;
+      display: flex;
+      text-align: center;
+      & li {
+        width: 33.333%;
+        height: 100vh;
+        color: white;
+        box-sizing: border-box;
+        border-right: 1px solid $moonDrakBlueColor;
+        & a {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: $moonDrakBlueColor;
+          }
+
+          & .title {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            padding-bottom: 50px;
+            text-align: left;
+
+            & strike {
+              opacity: 0.7;
+            }
+          }
+          & figure {
+            padding-top: 200px;
+
+            & img {
+              width: 100%;
+            }
+            & figcaption {
+              color: white;
+              font-size: 0.7rem;
+              text-align: left;
+              margin-top: 7px;
+
+              & p {
+                margin-top: 3px;
+                &.stopProject {
+                  color: $topActiveColor;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
