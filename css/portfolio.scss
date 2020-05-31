@@ -1,8 +1,16 @@
+@import "../css/common";
+@import "../css/animation";
+@import "../css/mixin";
+
 .section{
-    padding-left: 12.5%;
-
+    width: 87.5%; height: 100%;
+    margin: 0 0 0 12.5%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
     &__portfolio{
-
+        width: 100%; height: 100%;
+        overflow: hidden;
         & h2{
             width: 1px; height: 1px;
             margin: 0;
@@ -10,11 +18,51 @@
         }
 
         &--list{
-            width: 100%;
             position: absolute;
             display: flex;
+            text-align: center;
             & li{
-                width: 30%;
+                width: 400px; height: 100vh;
+                color: white;
+                border: 1px solid red;
+                box-sizing: border-box;
+                & button{
+                    @include buttonReset();
+                    width: 100%; height: 100%;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:hover{
+                        background-color: green;
+                    }
+                    & figure{
+                        padding-top: 300px;
+                        
+                        & img{
+                            width: 300px;
+                        }
+                        & figcaption{
+
+                        }
+                    }
+                }
+                &.active{
+                    width: 900px;
+
+                    & button{
+                        & figure{
+                            & img{
+                                width: 600px;
+                            }
+                            & figcaption{
+
+                            }
+                        }
+                    }
+                    
+                }
             }
         }
         
