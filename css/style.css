@@ -18,6 +18,9 @@ li {
   margin: 0;
   padding: 0; }
 
+textarea {
+  resize: none; }
+
 ul,
 li,
 a {
@@ -376,7 +379,7 @@ body {
   border-right: 1px solid #4d5170; }
   .line.change span::before {
     background: #1d2b6b; }
-.line.change.on .line.change span .line.change::before {
+.line.change.on span .line.change::before {
   width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

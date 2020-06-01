@@ -18,6 +18,9 @@ li {
   margin: 0;
   padding: 0; }
 
+textarea {
+  resize: none; }
+
 @keyframes rightVisualText {
   0% {
     margin-right: -120px; }
