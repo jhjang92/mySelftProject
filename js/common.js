@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function () {
   var loadHeader = document.querySelector("header");
   
   // header Load
-  fetch("../html/header.html")
+  fetch("header.html")
   .then(function (response) {
     response.text().then(function (text) {
       loadHeader.innerHTML = text;

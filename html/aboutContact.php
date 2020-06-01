@@ -101,7 +101,8 @@
             <span>-지적 및 피드백 환영합니다.</span>
           </h4>
 
-          <form action="" onsubmit="return false;">
+          <!-- 댓글 입력 폼 -->
+          <form action="../work_php/insert_comments.php" method="post" class="commentForm"  onsubmit="return false;">
             <div class="inputBox">
               <input type="text" name="name" placeholder="닉네임" value="">
               <input type="password" name="password" placeholder="비밀번호 (수정 및 삭제 시 사용)" value="">
@@ -111,7 +112,7 @@
               placeholder="댓글을 입력해주세요."
               name="content"
             ></textarea>
-            <input type="submit" value="등록" />
+            <input class="commentBtn" type="submit" value="등록" />
           </form>
           <!-- 댓글 표시될 전체 Box -->
           <div class="commentBox">

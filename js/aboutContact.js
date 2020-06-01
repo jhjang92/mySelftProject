@@ -1,5 +1,6 @@
 var sectionHeader,
   sectionContent,
+  commentBtns,
   aboutInitCheck = true,
   wheelChangeChk = false,
   wheelIfElseChk = true;
@@ -22,7 +23,12 @@ window.addEventListener("DOMContentLoaded", function () {
   sectionContactTabMenus.forEach(function (menus) {
     menus.addEventListener("click", changeTabMenu);
   });
+
+  
+  commentBtns = document.querySelector(".commentBtn");
+  commentBtns.addEventListener("click", insertComments);
 });
+
 
 function init() {
   if (aboutInitCheck) {
@@ -105,4 +111,43 @@ function changeTabMenu() {
     commentContent.classList.toggle("on");
   } else {
   }
+}
+
+function insertComments(){
+  var form = document.querySelector('.commentForm');
+
+  var inputBox = form.querySelector('.inputBox');
+  var inputs = inputBox.querySelectorAll('input');
+  var contentBox = form.querySelector('textarea');
+
+  var name = inputs[0].value;
+  var password = inputs[1].value;
+  var content = contentBox.value;
+  const fetchInit = {
+    method:"get"
+  }
+  fetch('../work_php/insert_comments.php?'+"name=" +name + "&" + "password=" + password + "&" + "content="+ content, fetchInit)
+  .then(
+    function (response){
+      response.text().then(function(text){
+        console.log(text);
+        inputs[0].value = "";
+        inputs[1].value = "";
+        contentBox.value = "";
+        alert("댓글등록이 성공하였습니다.");
+
+      })
+    }
+  )
+}
+selectComments();
+function selectComments(){
+  fetch('../work_php/select_comments.php')
+  .then(
+    function (response){
+      response.text().then(function(text){
+        console.log(text);
+      })
+    }
+  )
 }
