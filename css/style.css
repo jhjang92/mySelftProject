@@ -145,7 +145,7 @@ body {
         font-size: 0.5rem;
         font-weight: 700; }
       .header__topNavigation ul li a.active {
-        color: #9e9191; }
+        color: #af0f0f; }
   .header__topNavigation.on {
     opacity: 1;
     top: 0; }
@@ -197,7 +197,7 @@ body {
 .header.change .header__topNavigation ul li a {
   color: #fff; }
 .header.change .header__topNavigation ul li a.active {
-  color: #9e9191; }
+  color: #af0f0f; }
 
 .header.on .header__navigation {
   display: block;

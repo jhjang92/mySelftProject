@@ -243,7 +243,7 @@ textarea {
         display: flex;
         justify-content: center; }
         .section__contact--comment form .inputBox {
-          width: 15%;
+          width: 20%;
           display: inline-block;
           overflow: hidden;
           margin-right: 5px; }
@@ -257,7 +257,7 @@ textarea {
           box-sizing: border-box;
           margin-right: 5px; }
         .section__contact--comment form > input {
-          width: 15%;
+          width: 10%;
           height: 50px;
           box-sizing: border-box; }
       .section__contact--comment.on {
@@ -270,41 +270,51 @@ textarea {
     text-align: left; }
     .section .commentBox__count {
       margin: 20px 0; }
-    .section .commentBox__inner--contentBox {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 7px 0; }
-      .section .commentBox__inner--contentBox-content {
+    .section .commentBox__inner {
+      border-bottom: 1px solid #233976d5;
+      box-sizing: border-box; }
+      .section .commentBox__inner--contentBox {
         display: flex;
-        align-items: center; }
-        .section .commentBox__inner--contentBox-content i {
-          margin-right: 5px; }
-        .section .commentBox__inner--contentBox-content p {
-          margin-left: 10px; }
-          .section .commentBox__inner--contentBox-content p:last-of-type {
-            font-size: .8rem;
-            margin-left: 20px; }
-      .section .commentBox__inner--contentBox-crud {
-        font-size: .8rem; }
-        .section .commentBox__inner--contentBox-crud button {
-          border: none;
-          background: none;
-          outline-style: none;
-          margin: 0;
-          padding: 0;
-          cursor: pointer;
-          color: #ffb800; }
-        .section .commentBox__inner--contentBox-crud span {
-          margin-left: 3px; }
-    .section .commentBox__inner--replies {
-      margin-left: 10px; }
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0; }
+        .section .commentBox__inner--contentBox-content {
+          display: flex;
+          align-items: center; }
+          .section .commentBox__inner--contentBox-content i {
+            margin-right: 5px; }
+          .section .commentBox__inner--contentBox-content p {
+            margin-left: 10px; }
+            .section .commentBox__inner--contentBox-content p:last-of-type {
+              font-size: .8rem;
+              margin-left: 20px; }
+        .section .commentBox__inner--contentBox.re {
+          padding: 0 0 10px 10px;
+          border-bottom: 1px solid #233976d5;
+          box-sizing: border-box; }
+        .section .commentBox__inner--contentBox-crud {
+          font-size: .8rem; }
+          .section .commentBox__inner--contentBox-crud button {
+            border: none;
+            background: none;
+            outline-style: none;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            color: #ffb800;
+            margin-left: 5px; }
+            .section .commentBox__inner--contentBox-crud button:last-of-type {
+              color: #af0f0f; }
+          .section .commentBox__inner--contentBox-crud span {
+            margin-left: 3px; }
       .section .commentBox__inner--replies form {
-        justify-content: left; }
+        justify-content: center;
+        padding-bottom: 5px; }
         .section .commentBox__inner--replies form textarea {
-          margin-right: 5px; }
+          margin-right: 5px;
+          width: 55%; }
       .section .commentBox__inner--replies-inputBox {
-        width: 20%;
+        width: 25%;
         height: 50px;
         margin-right: 5px; }
         .section .commentBox__inner--replies-inputBox input {

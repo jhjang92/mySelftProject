@@ -1,4 +1,8 @@
 <?
+    include_once $_SERVER['DOCUMENT_ROOT']."/inc/db.php";
+
+    
+
     function commentInsert($name, $password, $content)
     {
 

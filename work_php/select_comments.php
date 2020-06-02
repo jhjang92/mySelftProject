@@ -3,16 +3,26 @@
 
     commentSelect();
     function commentSelect(){
+
         $query = "SELECT *
                     FROM comments
-                    order by idx asc
+                    order by idx desc
                  ";
             $result = mq($query);
+            $json = array();
+            $arr = [];
+            
             while($row = mysqli_fetch_array($result)){
-                echo json_encode($row['name'], JSON_UNESCAPED_UNICODE);
-                echo json_encode($row['password'], JSON_UNESCAPED_UNICODE);
-                echo json_encode($row['content'], JSON_UNESCAPED_UNICODE);
+             
+                $idx = $row['idx'];
+                $name = $row['name'];
+                $password = $row['password'];
+                $content = $row['content'];
+                $reg_time = $row['reg_time'];
+                array_push($arr, array('idx'=> $idx, 'name'=> $name , 'password'=> $password , 'content'=> $content, 'reg_time'=> $reg_time));
             }
+            $resultArray = json_encode($arr, JSON_UNESCAPED_UNICODE);
+            echo $resultArray;
     }
 
     function repliesSelect(){
