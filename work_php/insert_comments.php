@@ -20,4 +20,18 @@
        
         echo $result;
     }
+
+    function commentRepliesInsert($name, $password, $content)
+    {
+        $idx = $_GET['idx'];
+        $query = "INSERT INTO comments_replies(
+            name, password, content, comments_idx
+            ) values (
+            '$name', '$password', '$content', '$idx'
+            )";
+
+        $result = mq($query); // 쿼리명령문 실행
+       
+        echo $result;
+    }
 ?>

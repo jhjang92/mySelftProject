@@ -153,7 +153,17 @@
 
     &.topMove {
       top: 0%;
+      &.commentmenu{
+          overflow-y: scroll;
+
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+      }
     }
+    
     h3 {
       width: 1px;
       height: 1px;
@@ -167,6 +177,21 @@
       height: 80px;
       line-height: 80px;
       background: #234296;
+      button{
+        @include buttonReset();
+        opacity: 0;
+        cursor: pointer;
+
+        img{
+          margin: 20px 0 0 20px;
+          width: 32px; height: 32px;
+          filter: opacity(50%);
+        }
+        &.on{
+          opacity: 1;
+        }
+      } 
+      
     }
     &--tabMenu {
       width: 100%;
@@ -206,7 +231,7 @@
       margin: 30px auto;
       width: 50%;
       transform: translateY(0);
-      transition: 1s;
+      transition: 1.4s;
       opacity: 1;
 
       h4 {
@@ -248,16 +273,16 @@
       top: 225px;
       width: 100%;
       text-align: center;
-      transform: translateY(300%);
+      transform: translateY(50%);
       transition: 1s;
       opacity: 0;
-
+      
       h4 {
         color: white;
         font-weight: 500;
         span {
           display: block;
-          color: #233976;
+          color: $topActiveColor;
           font-size: 0.8rem;
         }
       }
@@ -295,6 +320,13 @@
       &.on {
         transform: translateY(0%);
         opacity: 1;
+        
+      }
+
+      &--count{
+        margin: 20px 0 20px 12%;
+        text-align: left;
+        color: white;
       }
     }
   }
@@ -305,9 +337,7 @@
     width: 75%;
     margin: 0 auto;
     text-align: left;
-    &__count{
-      margin: 20px 0;
-    }
+    
     // 댓글 추가될때 사용될 contentBox
     &__inner{
       border-bottom: 1px solid #233976d5;
@@ -372,6 +402,9 @@
           width: 25%;
           height: 50px;
           margin-right: 5px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
           input{
             width: 100%;
             height: 25px;

@@ -12,5 +12,5 @@ function init(){
             console.log(sectionText);
             sectionText.classList.add("active");
           }
-    }, 200);
+    }, 500);
 }

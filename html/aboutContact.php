@@ -60,7 +60,7 @@
       <article class="section__contact">
         <h3>문의하기 & 댓글쓰기</h3>
         <div class="section__contact--refresh">
-          <span>버튼공간 ( 한줄댓글에서 새로고침기능 )</span>
+          <button><img src="../img/-.png" alt="새로고침"></button>
         </div>
         <div class="section__contact--tabMenu">
           <button class="active">
@@ -97,7 +97,7 @@
 
         <article class="section__contact--comment">
           <h4>
-            불편하신 사항등을 남겨주세요
+            구경하시면서 불편했던 사항이나 </br> 피드백 남겨주시면 감사합니다.
             <span>-지적 및 피드백 환영합니다.</span>
           </h4>
 
@@ -114,78 +114,8 @@
             ></textarea>
             <input class="commentBtn" type="submit" value="등록" />
           </form>
-          <!-- 댓글 표시될 전체 Box -->
-          <div class="commentBox">
-            <p class="commentBox__count">아직 댓글이 없습니다.</p>
-            <!-- 댓글 하나의 내용 -->
-            <div class="commentBox__inner">
-              <div class="commentBox__inner--contentBox">
-                <div class="commentBox__inner--contentBox-content">
-                  <i>i</i>
-                  <p>닉네임</p>
-                  <p>댓글 내용이 나올 공간입니다.</p>
-                </div>
 
-
-                <div class="commentBox__inner--contentBox-crud">
-                  <button>답장</button>
-                  <button>수정</button>
-                  <button>삭제</button>
-                  <span>20.06.01</span>
-                </div>
-                
-              </div>
-              <div class="commentBox__inner--contentBox">
-                <div class="commentBox__inner--contentBox-content">
-                  <i>i</i>
-                  <p>닉네임</p>
-                  <p>댓글 내용이 나올 공간입니다.</p>
-                </div>
-
-
-                <div class="commentBox__inner--contentBox-crud">
-                  <button>답장</button>
-                  <button>수정</button>
-                  <button>삭제</button>
-                  <span>20.06.01</span>
-                </div>
-                
-              </div>
-              <!-- 답장,수정 시 생성되는 formBox -->
-              <div class="commentBox__inner--replies">
-                <form action="">
-                  <div class="commentBox__inner--replies-inputBox">
-                    <input type="text" name="name" placeholder="닉네임" value="">
-                    <input type="password" name="password" placeholder="비밀번호 (수정 및 삭제 시 사용)" value="">
-                  </div>
-                  <textarea
-                    type="text"
-                    placeholder="댓글을 입력해주세요."
-                    name="content"
-                  ></textarea>
-                  <input type="submit" value="등록" />
-                </form>
-              </div>
-            </div>
-            <div class="commentBox__inner">
-              <div class="commentBox__inner--contentBox">
-                <div class="commentBox__inner--contentBox-content">
-                  <i>i</i>
-                  <p>닉네임</p>
-                  <p>댓글 내용이 나올 공간입니다.</p>
-                </div>
-
-
-                <div class="commentBox__inner--contentBox-crud">
-                  <button>답장</button>
-                  <button>수정</button>
-                  <button>삭제</button>
-                  <span>20.06.01</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <p class="section__contact--comment--count">아직 댓글이 없습니다.</p>
         </article>
       </article>
     </section>
