@@ -1,15 +1,40 @@
 <?
-    include_once $_SERVER['DOCUMENT_ROOT']."/mySelftProject/inc/db.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/inc/db.php";
 
-    $name = $_GET['name'];
-    $password = $_GET['password'];
-    $content = $_GET['content'];
+    $typeCheck = $_GET['typeCheck'];
 
-    // 2종류 인설트 분기해야함.
-    commentInsert($name, $password, $content);
+    switch($typeCheck){
+        case "questionMail": questionMainInsert(); break;
+        case "commentAdd": commentInsert(); break;
+        default: break;
+    }
 
-    function commentInsert($name, $password, $content)
+    function questionMainInsert()
     {
+        $name = $_GET['name'];
+        $email = $_GET['email'];
+        $title = $_GET['title'];
+        $content = $_GET['content'];
+
+        $query = "INSERT INTO question_mail(
+            name, email, title, content
+            ) values (
+            '$name', '$email', '$title', '$content'
+            )";
+
+        $result = mq($query); // 쿼리명령문 실행
+        
+        echo $result;
+            // echo "<script>alert(\"시간 내주셔서 감사합니다. 빠른 시일내에 답변 드리겠습니다.\");</script>";
+            // pageLocation('../html/aboutContact.php?contact');
+    }
+
+    function commentInsert()
+    {
+        $name = $_GET['name'];
+        $password = $_GET['password'];
+        $content = $_GET['content'];
+
         $query = "INSERT INTO comments(
             name, password, content
             ) values (

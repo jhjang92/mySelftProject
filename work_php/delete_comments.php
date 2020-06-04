@@ -1,5 +1,5 @@
 <?
-    include_once $_SERVER['DOCUMENT_ROOT']."/mySelftProject/inc/db.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/inc/db.php";
 
     $idx = $_GET['idx'];
     $query = " DELETE

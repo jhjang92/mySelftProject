@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/aboutContact.css" />
     <script src="../js/common.js"></script>
+    <script src="../js/questionMail.js"></script>
     <script src="../js/aboutContact.js"></script>
     <title>Hyo Portfolio</title>
   </head>
@@ -36,31 +37,52 @@
               </dd>
             </dl>
           </div>
-          <div class="section__content--box-graph">
+          <div class="section__content--box-skill">
             <strong>SKILL</strong>
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
-            차트영역차트영역차트영역차트영역차트영역차트영역차트영역차트영역<br />
+            <figure>
+              <img src="../img/html.png" alt="HTML5">
+              <figcaption>
+              시맨틱 마크업을 생각하면서 코드를 작성합니다. </br>
+              웹표준과 접근성을 신경씁니다.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="../img/css.png" alt="css3">
+              <figcaption>
+              BEM방식 등을 이용하여 깔끔한 css를 작성하기위해 고민합니다.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="../img/js.png" alt="javascript">
+              <figcaption>
+              코드의 재사용성을 신경씁니다. </br>
+              코드의 확장성을 고민합니다.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="../img/sass.png" alt="sass">
+              <figcaption>
+              변수를 사용한 color값 일괄수정 등, </br> mixin을 사용하여 중복코드를 함수화 합니다.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="../img/php.png" alt="php">
+              <figcaption>
+                기초문법을 숙지하며, mySql을 사용한 동적업무를 처리합니다.
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="../img/mysql.png" alt="mySql">
+              <figcaption>
+              SELECT, CREATE , UPDATE, DELETE 를 사용하여, 데이터를 관리합니다.
+              </figcaption>
+            </figure>
           </div>
-          <p>
-            첫번째 SKILL의 대한 내용 입니다. 이 내용은 저의 역량을 text화
-            해놓은것으로써 차트를 보다 읽기 쉽게 도와줍니다.
-          </p>
         </div>
       </article>
       <article class="section__contact">
         <h3>문의하기 & 댓글쓰기</h3>
         <div class="section__contact--refresh">
-          <button><img src="../img/-.png" alt="새로고침"></button>
         </div>
         <div class="section__contact--tabMenu">
           <button class="active">
@@ -73,7 +95,7 @@
           </button>
         </div>
 
-        <form class="section__contact--form" action="">
+        <form class="section__contact--form" action="../work_php/insert_comments.php" onsubmit="return false;">
           <h4>궁금하신 사항들을 문의해주세요.</h4>
           <label for="contactNickName">*닉네임</label>
           <input id="contactNickName" type="text" name="name" value="" />
@@ -92,7 +114,8 @@
             rows="10"
           ></textarea>
 
-          <input type="submit" value="전송하기" />
+          <input class="questionHidden" type="hidden" name="typeCheck" value="questionMail">
+          <input class="questionBtn" type="submit" value="전송하기" />
         </form>
 
         <article class="section__contact--comment">
@@ -101,8 +124,9 @@
             <span>-지적 및 피드백 환영합니다.</span>
           </h4>
 
+          <button class="refreshBtn"><img src="../img/-.png" alt="새로고침"></button>
           <!-- 댓글 입력 폼 -->
-          <form action="../work_php/insert_comments.php" method="post" class="commentForm"  onsubmit="return false;">
+          <form action="" class="commentForm" onsubmit="return false;">
             <div class="inputBox">
               <input type="text" name="name" placeholder="닉네임" value="">
               <input type="password" name="password" placeholder="비밀번호 (수정 및 삭제 시 사용)" value="">
@@ -112,6 +136,7 @@
               placeholder="댓글을 입력해주세요."
               name="content"
             ></textarea>
+          <input class="commentHidden" type="hidden" name="typeCheck" value="commentAdd">
             <input class="commentBtn" type="submit" value="등록" />
           </form>
 

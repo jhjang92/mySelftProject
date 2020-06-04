@@ -1,8 +1,13 @@
 <?
+    // $host = 'localhost';
+    // $db_user = 'root';
+    // $db_password = '';
+    // $db_name = 'myself_portfolio';
+
     $host = 'localhost';
-    $db_user = 'root';
-    $db_password = '';
-    $db_name = 'myself_portfolio';
+    $db_user = 'hyogi';
+    $db_password = 'wogur7812#';
+    $db_name = 'hyogi'; //user DB
 
     $dbConn = new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -16,3 +21,4 @@
         echo "<script>location.href=\"$url\";</script>";
     }
 ?>
+<meta charset="UTF-8" />

@@ -100,34 +100,39 @@ textarea {
       opacity: 0;
       transition: 1s;
       transition-delay: 1.1s; }
-      .section__content--box div {
-        float: left; }
-        .section__content--box div dl {
-          margin-top: 50px;
+      .section__content--box-text {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 25px; }
+        .section__content--box-text dl {
           color: white; }
-          .section__content--box div dl dt {
+          .section__content--box-text dl dt {
             font-size: 1.5rem; }
-          .section__content--box div dl dd {
-            margin-top: 25px;
+          .section__content--box-text dl dd {
+            margin-top: 15px;
             font-size: 0.9rem; }
-          .section__content--box div dl:first-of-type {
-            margin-top: 0; }
-      .section__content--box-graph {
-        margin-left: 150px; }
-        .section__content--box-graph strong {
+          .section__content--box-text dl:first-of-type {
+            margin-right: 50px; }
+      .section__content--box-skill {
+        margin-top: 20px; }
+        .section__content--box-skill strong {
           font-size: 2rem;
           color: white;
-          display: block;
-          margin-bottom: 10px; }
-      .section__content--box p {
-        clear: both;
-        padding-top: 20px;
-        color: white;
-        text-align: center; }
-      .section__content--box::after {
-        content: '';
-        display: block;
-        clear: both; }
+          display: block; }
+        .section__content--box-skill figure {
+          margin: 0;
+          width: 30%;
+          display: inline-block;
+          margin: 25px 20px 0 0; }
+          .section__content--box-skill figure img {
+            display: block;
+            margin: 0 auto;
+            max-height: 80px; }
+          .section__content--box-skill figure figcaption {
+            margin-top: 10px;
+            color: white;
+            text-align: center; }
     .section__content.topMove {
       top: -100%; }
   .section__content.active h3::after {
@@ -166,22 +171,6 @@ textarea {
       height: 80px;
       line-height: 80px;
       background: #234296; }
-      .section__contact--refresh button {
-        border: none;
-        background: none;
-        outline-style: none;
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
-        opacity: 0;
-        cursor: pointer; }
-        .section__contact--refresh button img {
-          margin: 20px 0 0 20px;
-          width: 32px;
-          height: 32px;
-          filter: opacity(50%); }
-        .section__contact--refresh button.on {
-          opacity: 1; }
     .section__contact--tabMenu {
       width: 100%;
       height: 80px;
@@ -217,8 +206,10 @@ textarea {
       margin: 30px auto;
       width: 50%;
       transform: translateY(0);
-      transition: 1.4s;
-      opacity: 1; }
+      transition: opacity 0.7s;
+      opacity: 1;
+      position: relative;
+      z-index: 10; }
       .section__contact--form h4 {
         font-size: 2rem;
         color: white;
@@ -232,40 +223,67 @@ textarea {
         width: 100%;
         height: 40px;
         box-sizing: border-box;
-        outline-style: none; }
+        outline-style: none;
+        background: none;
+        border: 0;
+        border-bottom: 2px solid #ffb800;
+        color: white; }
+        .section__contact--form input:last-of-type {
+          border: 2px solid #ffb800;
+          cursor: pointer; }
       .section__contact--form textarea {
         display: block;
         width: 100%;
         box-sizing: border-box;
         margin-bottom: 30px;
         outline-style: none;
-        padding: 5px; }
+        padding: 5px;
+        background: none;
+        border: 2px solid #ffb800;
+        color: white; }
       .section__contact--form.off {
-        transform: translateY(150%);
-        opacity: 0; }
+        opacity: 0;
+        z-index: 0; }
     .section__contact--comment {
       position: absolute;
-      left: 0;
+      left: 50%;
       top: 225px;
-      width: 100%;
+      width: 75%;
       text-align: center;
-      transform: translateY(50%);
-      transition: 1s;
+      transform: translate(-50%);
+      transition: opacity .5s, transform 1s;
       opacity: 0; }
       .section__contact--comment h4 {
         color: white;
         font-weight: 500; }
         .section__contact--comment h4 span {
           display: block;
-          color: #af0f0f;
+          color: #ffb800;
           font-size: 0.8rem; }
+      .section__contact--comment .refreshBtn {
+        border: none;
+        background: none;
+        outline-style: none;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 11%; }
+        .section__contact--comment .refreshBtn img {
+          width: 32px;
+          height: 32px;
+          filter: opacity(100%); }
+        .section__contact--comment .refreshBtn.on {
+          opacity: 1; }
       .section__contact--comment form {
         width: 100%;
         margin: 0 auto;
-        display: flex;
-        justify-content: center; }
+        display: flex; }
         .section__contact--comment form .inputBox {
-          width: 20%;
+          width: 25%;
           display: inline-block;
           overflow: hidden;
           margin-right: 5px; }
@@ -274,24 +292,25 @@ textarea {
             height: 25px;
             box-sizing: border-box; }
         .section__contact--comment form textarea {
-          width: 45%;
+          width: 55%;
           height: 50px;
           box-sizing: border-box;
           margin-right: 5px; }
         .section__contact--comment form > input {
           width: 10%;
           height: 50px;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+          cursor: pointer; }
       .section__contact--comment.on {
-        transform: translateY(0%);
+        transform: translate(-50%);
         opacity: 1; }
       .section__contact--comment--count {
-        margin: 20px 0 20px 12%;
+        margin: 20px 0 20px 0;
         text-align: left;
         color: white; }
   .section .commentBox {
     color: white;
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
     text-align: left; }
     .section .commentBox__inner {
@@ -304,14 +323,18 @@ textarea {
         padding: 10px 0; }
         .section .commentBox__inner--contentBox-content {
           display: flex;
-          align-items: center; }
+          align-items: center;
+          width: 85%; }
           .section .commentBox__inner--contentBox-content i {
             margin-right: 5px; }
           .section .commentBox__inner--contentBox-content p {
             margin-left: 10px; }
+            .section .commentBox__inner--contentBox-content p:first-of-type {
+              width: 10%; }
             .section .commentBox__inner--contentBox-content p:last-of-type {
               font-size: .8rem;
-              margin-left: 20px; }
+              margin-left: 10px;
+              width: 80%; }
         .section .commentBox__inner--contentBox.re {
           padding: 0 0 10px 10px;
           border-bottom: 1px solid #233976d5;

@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function () {
   sectionContent = document.querySelector(".section__content");
   sectionContact = document.querySelector(".section__contact");
   sectionContactTabMenus = sectionContact.querySelectorAll(".section__contact--tabMenu button");
-  refreshBtn = sectionContact.querySelector('.section__contact--refresh button');
+  refreshBtn = sectionContact.querySelector('.refreshBtn');
 
   // 실행구문
   console.log(wheelIfElseChk);
@@ -24,6 +24,10 @@ window.addEventListener("DOMContentLoaded", function () {
   
   commentBtns = document.querySelector(".commentBtn");
   commentBtns.addEventListener("click", insertComments);
+
+  questionBtn = document.querySelector(".questionBtn");
+  questionBtn.addEventListener("click", insertQuestionMail);
+
 });
 
 
@@ -47,7 +51,7 @@ function init() {
 
   setTimeout(function () {
     wheelChangeChk = true;
-  }, 4000);
+  }, 3000);
 }
 
 function wheelUpDown() {
@@ -113,6 +117,37 @@ function changeTabMenu() {
   } else {
   }
 }
+function insertQuestionMail(){
+  var form = document.querySelector('.section__contact--form');
+
+  var inputs = form.querySelectorAll('input');
+  var contentBox = form.querySelector('textarea');
+
+  var name = inputs[0].value;
+  var email = inputs[1].value;
+  var title = inputs[2].value;
+  var content = contentBox.value;
+  var typeCheck = document.querySelector('.questionHidden');
+
+  const fetchInit = {
+    method:"get"
+  }
+  fetch('../work_php/insert_comments.php?'+"name=" +name + "&" + "email=" + email + "&" + "title=" + title + "&" +  "content="+ content + "&" + "typeCheck=" + typeCheck.value, fetchInit)
+  // body 로 값넣기
+  .then(
+    function (response){
+      response.text().then(function(text){
+        inputs[0].value = "";
+        inputs[1].value = "";
+        inputs[2].value = "";
+        contentBox.value = "";
+        if(text.substr(24) == "1"){
+          alert("시간내주셔서 감사합니다. \n 빠른시일내에 답변드리겠습니다.");  
+        }
+      })
+    }
+  )
+}
 
 // SQL ADD, UPDATE , DELETE
 function insertComments(){
@@ -125,6 +160,9 @@ function insertComments(){
   var name = inputs[0].value;
   var password = inputs[1].value;
   var content = contentBox.value;
+  var typeCheck = document.querySelector('.commentHidden');
+  console.log(typeCheck.value);
+
 
   if(name == ""){
     alert("닉네임을 입력해주세요.");
@@ -140,12 +178,12 @@ function insertComments(){
   const fetchInit = {
     method:"get"
   }
-  fetch('../work_php/insert_comments.php?'+"name=" +name + "&" + "password=" + password + "&" + "content="+ content, fetchInit)
+  fetch('../work_php/insert_comments.php?'+"name=" +name + "&" + "password=" + password + "&" + "content="+ content + "&" + "typeCheck=" + typeCheck.value, fetchInit)
   // body 로 값넣기
   .then(
     function (response){
       response.text().then(function(text){
-        console.log(text);
+        console.log(text.substr(24));
         inputs[0].value = "";
         inputs[1].value = "";
         contentBox.value = "";
@@ -164,7 +202,8 @@ function selectComments(){
   .then(
     function (response){
       response.text().then(function(text){
-        var res = JSON.parse(text);
+        console.log(text.substr(24));
+        var res = JSON.parse(text.substr(24));
 
         // 댓글의 총 갯수 표시.
         updateCommentCount(res.length);
@@ -333,26 +372,23 @@ function createReplies_UpdateForm(idx, name, content){
       nameInput.placeholder = "닉네임";
       nameInput.value = name;
       nameInput.disabled = true;
-      
 
       inputBox.append(nameInput);
-
-      submitInput.addEventListener("click", function(){
-        event.preventDefault();
-        if(event.target.closest('.commentBox__inner').querySelector('.crud_on').innerText == "수정"){
-          var result = confirm("댓글을 수정 하시겠습니까?");
-        }else{
-          var result = confirm("댓글을 삭제 하시겠습니까?");
-        }
-        
-             if(result){
-               console.log("확인");
-              checkUserPassword();
-             }else{}
-      });
     }
 
-    
+    submitInput.addEventListener("click", function(){
+      event.preventDefault();
+      if(event.target.closest('.commentBox__inner').querySelector('.crud_on').innerText == "수정"){
+        var result = confirm("댓글을 수정 하시겠습니까?");
+      }else{
+        var result = confirm("댓글을 삭제 하시겠습니까?");
+      }
+      
+    if(result){
+      console.log("확인");
+    checkUserPassword();
+    }
+    });
     // 비밀번호 입력창 생성
     pwInput = document.createElement('input');
     pwInput.type = "password";
@@ -375,8 +411,7 @@ function updateComments(idx, content){
   .then(
     function (response){
       response.text().then(function(text){
-        console.log(text);
-        if(text == "true"){
+        if(text.substr(24) == "true"){
           selectComments();
           alert("댓글을 수정하였습니다.");
         }else{
@@ -395,8 +430,7 @@ function deleteComments(idx){
   .then(
     function (response){
       response.text().then(function(text){
-        console.log(text);
-        if(text == "true"){
+        if(text.substr(24) == "true"){
           selectComments();
           alert("댓글을 삭제하였습니다.");
         }else{
@@ -430,11 +464,7 @@ function checkUserPassword(){
   .then(
     function (response){
       response.text().then(function(text){
-        console.log(text);
-        console.log(text == "true");
-        console.log(text == true);
-        if(text == "true"){
-          console.log(document.querySelector('.crud_on').innerText);
+        if(text.substr(24) == "true"){
           if(document.querySelector('.crud_on').innerText == "수정"){
             updateComments(idx, content);
           }else{
