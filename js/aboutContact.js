@@ -11,7 +11,6 @@ window.addEventListener("DOMContentLoaded", function () {
   refreshBtn = sectionContact.querySelector('.refreshBtn');
 
   // 실행구문
-  console.log(wheelIfElseChk);
   init();
   // 초기 이벤트 등록
   window.addEventListener("wheel", wheelUpDown);
@@ -29,7 +28,6 @@ window.addEventListener("DOMContentLoaded", function () {
   questionBtn.addEventListener("click", insertQuestionMail);
 
 });
-
 
 function init() {
   if (aboutInitCheck) {
@@ -161,8 +159,6 @@ function insertComments(){
   var password = inputs[1].value;
   var content = contentBox.value;
   var typeCheck = document.querySelector('.commentHidden');
-  console.log(typeCheck.value);
-
 
   if(name == ""){
     alert("닉네임을 입력해주세요.");
@@ -183,7 +179,6 @@ function insertComments(){
   .then(
     function (response){
       response.text().then(function(text){
-        console.log(text.substr(24));
         inputs[0].value = "";
         inputs[1].value = "";
         contentBox.value = "";
@@ -202,7 +197,6 @@ function selectComments(){
   .then(
     function (response){
       response.text().then(function(text){
-        console.log(text.substr(24));
         var res = JSON.parse(text.substr(24));
 
         // 댓글의 총 갯수 표시.
@@ -221,7 +215,6 @@ function selectComments(){
         res.forEach(function(resData){
           // 댓글내역 태그 생성 및 append
           createCommentTag(resData.idx, resData.name, resData.content, stringToDate(resData.reg_time), commentBox);
-          // console.log(queryData);
         });
       })
     }
@@ -385,7 +378,6 @@ function createReplies_UpdateForm(idx, name, content){
       }
       
     if(result){
-      console.log("확인");
     checkUserPassword();
     }
     });
@@ -483,5 +475,5 @@ function stringToDate(date){
   var yy = date.substr(2, 2);
   var mm = date.substr(5, 2);
   var dd = date.substr(8, 2);
-  return `${mm}.${dd}.${yy}`;
+  return `${yy}.${mm}.${dd}`;
 }

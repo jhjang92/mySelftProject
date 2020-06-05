@@ -98,21 +98,16 @@
         <form class="section__contact--form" action="../work_php/insert_comments.php" onsubmit="return false;">
           <h4>궁금하신 사항들을 문의해주세요.</h4>
           <label for="contactNickName">*닉네임</label>
-          <input id="contactNickName" type="text" name="name" value="" />
+          <input id="contactNickName" type="text" name="name" value="" maxlength="9"/>
 
           <label for="contactEmail">*이메일</label>
-          <input id="contactEmail" type="text" name="email" value="" />
+          <input id="contactEmail" type="text" name="email" value="" maxlength="30"/>
 
           <label for="contactTit">*제목</label>
-          <input id="contactTit" type="text" name="title" value="" />
+          <input id="contactTit" type="text" name="title" value="" maxlength="100"/>
 
           <label for="contactContent">*내용</label>
-          <textarea
-            name="content"
-            id="contactContent"
-            cols="30"
-            rows="10"
-          ></textarea>
+          <textarea name="content" id="contactContent" cols="30" rows="10" maxlength="5000"></textarea>
 
           <input class="questionHidden" type="hidden" name="typeCheck" value="questionMail">
           <input class="questionBtn" type="submit" value="전송하기" />
@@ -128,14 +123,10 @@
           <!-- 댓글 입력 폼 -->
           <form action="" class="commentForm" onsubmit="return false;">
             <div class="inputBox">
-              <input type="text" name="name" placeholder="닉네임" value="">
-              <input type="password" name="password" placeholder="비밀번호 (수정 및 삭제 시 사용)" value="">
+              <input type="text" name="name" placeholder="닉네임" value="" maxlength="5">
+              <input type="password" name="password" placeholder="비밀번호 (수정 및 삭제 시 사용)" value="" maxlength="15">
             </div>
-            <textarea
-              type="text"
-              placeholder="댓글을 입력해주세요."
-              name="content"
-            ></textarea>
+            <textarea type="text" placeholder="댓글을 입력해주세요." name="content" maxlength="100" ></textarea>
           <input class="commentHidden" type="hidden" name="typeCheck" value="commentAdd">
             <input class="commentBtn" type="submit" value="등록" />
           </form>

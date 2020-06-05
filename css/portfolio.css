@@ -40,8 +40,10 @@ textarea {
   height: 100%;
   margin: 0 0 0 12.5%;
   box-sizing: border-box;
-  position: relative;
-  z-index: 10; }
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -3; }
   .section__portfolio {
     width: 100%;
     height: 100%;
@@ -51,11 +53,40 @@ textarea {
       height: 1px;
       margin: 0;
       overflow: hidden; }
+    .section__portfolio .close_btn {
+      border: none;
+      background: none;
+      outline-style: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      position: fixed;
+      right: 0;
+      margin: 20px 20px 0 0;
+      display: none; }
+      .section__portfolio .close_btn img {
+        width: 32px;
+        height: 32px; }
+      .section__portfolio .close_btn.on {
+        display: inline-block; }
     .section__portfolio--list {
       width: 100%;
       position: absolute;
       display: flex;
       text-align: center; }
+      .section__portfolio--list.active li {
+        width: 1px;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity .5s, width 1s; }
+        .section__portfolio--list.active li.on {
+          width: 100%;
+          background: #1e1f21;
+          cursor: default;
+          opacity: 1; }
+      .section__portfolio--list.active figure {
+        transition-delay: 1.1s;
+        width: 45%; }
       .section__portfolio--list li {
         width: 33.333%;
         height: 100vh;
@@ -63,14 +94,8 @@ textarea {
         box-sizing: border-box;
         border-right: 1px solid #1d2b6b;
         transition: 1s;
+        opacity: 1;
         cursor: pointer; }
-        .section__portfolio--list li.on {
-          width: 100%;
-          background: #1d2b6b;
-          cursor: default; }
-        .section__portfolio--list li.off {
-          width: 1px;
-          overflow: hidden; }
         .section__portfolio--list li figure {
           width: 100%;
           height: 100%;
@@ -78,9 +103,10 @@ textarea {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center; }
+          align-items: center;
+          transition: width 1s; }
           .section__portfolio--list li figure:hover {
-            background-color: #1d2b6b; }
+            background-color: #1e1f21; }
           .section__portfolio--list li figure .title {
             color: white;
             font-size: 2rem;
