@@ -9,7 +9,7 @@
   box-sizing: border-box;
   position: absolute;
   left: 0; top: 0;
-  z-index: -3;
+  z-index: 1;
   &__portfolio {
     width: 100%;
     height: 100%;
@@ -94,6 +94,7 @@
 
           img {
             width: 350px;
+            max-height: 165px;
           }
           figcaption {
             color: white;
