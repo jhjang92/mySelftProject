@@ -83,10 +83,26 @@ textarea {
           width: 100%;
           background: #1e1f21;
           cursor: default;
-          opacity: 1; }
+          opacity: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          .section__portfolio--list.active li.on figure {
+            width: unset;
+            margin-right: 7%;
+            transition: .5s; }
+          .section__portfolio--list.active li.on dl {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: .8s; }
+            .section__portfolio--list.active li.on dl dt {
+              margin-top: 40px;
+              font-size: 1.4rem; }
+            .section__portfolio--list.active li.on dl dd {
+              margin-top: 5px;
+              font-size: .9rem; }
       .section__portfolio--list.active figure {
-        transition-delay: 1.1s;
-        width: 45%; }
+        transition-delay: 1.1s; }
       .section__portfolio--list li {
         width: 33.333%;
         height: 100vh;
@@ -104,7 +120,7 @@ textarea {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          transition: width 1s; }
+          transition: .7s; }
           .section__portfolio--list li figure:hover {
             background-color: #1e1f21; }
           .section__portfolio--list li figure .title {
@@ -127,5 +143,11 @@ textarea {
               margin-top: 3px; }
               .section__portfolio--list li figure figcaption p.stopProject {
                 color: #af0f0f; }
+        .section__portfolio--list li dl {
+          width: 30%;
+          margin-right: 7%;
+          transition: .7s;
+          opacity: 0;
+          transform: translateY(-10%); }
 
 /*# sourceMappingURL=portfolio.css.map */
