@@ -1,9 +1,5 @@
 # mySelftProject
 
-제 포트폴리오와 이야기가 담겨있는 사이트를 제작
+제 포트폴리오를 소개하기위한 랜딩페이지 입니다.
 
-version : 1.0.0
- - mainPage 
 
-version : 1.0.1
- - mainPage, About
